@@ -1,0 +1,38 @@
+<template name="tabsDraftqolls">
+  {{#ionView}}
+    {{> _ionic_qoll_tabs_header}}
+
+    {{#ionContent class="padding"}}
+      {{#ionList}}
+
+        {{#each all_questionaires}}
+
+          {{#ionItem buttonRight=true iconLeft=true iconRight=true}}
+
+            <!-- img src="https://randomuser.me/api/portraits/thumb/men/27.jpg" -->
+            {{> _questionaireSizeButton this.qoll_count}}
+
+            <h2>{{this.title}}</h2>
+            <p>
+              Recipients: {{this.recips_count}}, Sent: {{this.submitted_on}}
+            </p>
+            <!-- button class="button button-positive">{{> ionIcon icon="chevron-right"}}</button -->
+
+            <a href="{{pathFor 'viewDraftQuestionnaire'}}" class="button button-positive" data-nav-direction="forward">{{> ionIcon icon="chevron-right"}}</a>
+
+          {{/ionItem}}
+
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+
+    {{> _ionic_qoll_tabs}}
+    <!-- {{> _ionic_qoll_tabs_footer}} -->
+  {{/ionView}}
+</template>
+
+
+<template name="_questionaireSizeButton">
+  <button class="button button-dark badge">{{this}}</button>
+</template>

@@ -1,0 +1,43 @@
+<template name='tabsViewInboxQuest'>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton class="button button-clear" text=false}}
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Questionnaire</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+			<!-- {{#ionSlideBox}} -->
+
+				<!-- Adding ion sliders -->
+				<!-- Slider for Qoll -->
+				<!-- {{#ionSlide class="light-bg"}} -->
+		    	<!-- {{> _ionic_qoll_header}} -->
+
+	      		{{#ionList}}
+	      			
+	        		{{#each qollst.qolls}}
+	        		
+
+	        			{{> single_qoll q=this questionaire=../qollst.questionaire}}
+
+					{{/each}}
+
+	      		{{/ionList}}
+			    <!-- {{> _ionic_qoll_tabs_footer}} -->
+			    <!-- {{/ionSlide}} -->
+
+			    <!-- Slider for Results -->
+			    <!-- {{#ionSlide class="dark-bg"}}
+			    	<h3>Slide 2</h3>
+			    {{/ionSlide}}
+		    {{/ionSlideBox}} -->
+	    {{/ionContent}}
+
+	    {{> _ionic_inbox_tabs}}
+
+	{{/ionView}}
+
+</template>

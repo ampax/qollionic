@@ -1,0 +1,134 @@
+<template name="ionic_new_account">
+	{{#contentFor "headerTitle"}}
+	    <h1 class="title">Qoll</h1>
+	{{/contentFor}}
+	{{#ionView}}
+    {{#ionContent}}
+      {{#if currentUser}}
+        <div class="padding">
+          <button class="button button-positive button-block" data-action="logout">Log Out</button>
+        </div>
+      {{else}}
+        {{> atForm}}
+      {{/if}}
+    {{/ionContent}}
+  {{/ionView}}
+	<!-- {{#ionView}}
+	    {{#ionContent}}
+			<div class="list">
+				  <label class="item item-input">
+				    <span class="input-label">First Name</span>
+				    <input type="text">
+				  </label>
+				  <label class="item item-input">
+				    <span class="input-label">Last Name</span>
+				    <input type="text">
+				  </label>
+				  <label class="item item-input">
+				    <span class="input-label">Username</span>
+				    <input type="text">
+				  </label>
+				  <label class="item item-input">
+				    <span class="input-label">Email</span>
+				    <input type="text">
+				  </label>
+				  <label class="item item-input">
+				    <span class="input-label">Password</span>
+				    <input type="password">
+				  </label>
+			</div>
+
+			<div class="padding">
+			    <button class="button button-block button-positive">Create Account</button>
+			</div>
+		{{/ionContent}}
+
+		{{#ionFooterBar class="bar-dark"}}
+	      <h1 class="title">Footer</h1>
+	    {{/ionFooterBar}}
+	{{/ionView}} -->
+</template>
+
+
+<template name="ionic_login">
+	  <!-- {{#contentFor "headerButtonLeft"}}
+	    {{>ionNavBackButton path="index"}}
+	  {{/contentFor}} -->
+	  {{#contentFor "headerTitle"}}
+	    <h1 class="title">Qoll - Discovery in Motion</h1>
+	  {{/contentFor}}
+
+	  {{#ionView}}
+	    {{#ionContent}}
+	      {{#if currentUser}}
+	        <div class="padding">
+	          <button class="button button-positive button-block" data-action="logout">Log Out</button>
+	        </div>
+	      {{else}}
+	        {{> atForm}}
+	      {{/if}}
+	    {{/ionContent}}
+	    {{#ionFooterBar class="bar-dark"}}
+	      <h1 class="title">Access Your Qoll Account</h1>
+	    {{/ionFooterBar}}
+	  {{/ionView}}
+	<!-- {{#contentFor "headerTitle"}}
+	    <h1 class="title">Qoll</h1>
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+	    <h1 class="title">Headers &amp; Footers</h1>
+	  {{/contentFor}}
+
+	{{#ionView}}
+	    {{#ionContent}}
+			<div class="list">
+			  <label class="item item-input">
+			    <span class="input-label">Email/Username</span>
+			    <input type="text">
+			  </label>
+			  <label class="item item-input">
+			    <span class="input-label">Password</span>
+			    <input type="password">
+			  </label>
+			</div>
+
+			<div class="padding">
+			    <button class="button button-block button-positive">Sign In</button>
+			</div>
+
+			{{#ionItem href="https://google.com" iconRight=true}}
+	          <h2>Title</h2>
+	          <p>Sub Title</p>
+	          {{> ionIcon icon="ios-arrow-right" }}
+	        {{/ionItem}}
+
+			{{/ionContent}}
+
+			{{#ionFooterBar class="bar-dark"}}
+		      <h1 class="title">Footer</h1>
+		    {{/ionFooterBar}}
+	{{/ionView}} -->
+
+</template>
+
+
+<template name="ionic_forgot_passwd">
+	{{#contentFor "headerTitle"}}
+	    <h1 class="title">Qoll</h1>
+	{{/contentFor}}
+	{{#ionView}}
+	    {{#ionContent}}
+		<div class="list list-inset">
+		  <label class="item item-input">
+		    <span class="input-label">Email/Username</span>
+		    <input type="text">
+		  </label>
+		</div>
+
+		<div class="padding">
+		    <button class="button button-block button-positive">Reset</button>
+		</div>
+		{{/ionContent}}
+	{{/ionView}}
+</template>

@@ -1,0 +1,31 @@
+<template name='view_draft_quest'>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton class="button button-clear" text=false}}
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Questionnaire</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+	    	<!-- {{> _ionic_qoll_header}} -->
+
+      		{{#ionList}}
+      			
+        		{{#each qollst.qolls}}
+        		
+
+        			{{> single_qoll q=this}}
+
+				{{/each}}
+
+      		{{/ionList}}
+		    <!-- {{> _ionic_qoll_tabs_footer}} -->
+	    {{/ionContent}}
+
+	    {{> _ionic_qoll_tabs}}
+
+	{{/ionView}}
+
+</template>

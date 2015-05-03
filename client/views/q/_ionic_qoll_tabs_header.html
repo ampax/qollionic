@@ -1,0 +1,30 @@
+<template name="_ionic_qoll_tabs_header">
+  {{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+      {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+      {{else}}
+        {{> ionIcon icon='navicon'}}
+      {{/if}}
+    </button>
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Qoll</h1>
+    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+      {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+      {{else}}
+        {{> ionIcon icon='navicon'}}
+      {{/if}}
+    </button>
+  {{/contentFor}}
+</template>
+
+
+<template name="_ionic_qoll_tabs_header_1">
+  {{#ionHeaderBar class="bar-positive"}}
+    {{>ionNavBackButton path="index"}}
+    <h1 class="title">Qolls</h1>
+  {{/ionHeaderBar}}
+</template>
+

@@ -1,0 +1,58 @@
+<template name='single_qoll'>
+
+  {{#ionItem}}
+    <h2>{{q.qoll_idx_title}} {{{transform_txt q.title q.cat q.context q.fib}}}</h2>
+    <p>{{{transform_txt q.qollText q.cat q.context q.fib}}}</p>
+
+    {{{get_units_html q.unit_name q.units}}}
+
+    {{#if q.unit}}
+      <div class="input-group">{{#if q.unit_name}}{{q.unit_name}}: {{else}}Unit: {{/if}}
+        {{#each q.unit}} 
+            <input name="unit" value="{{this}}" type="radio" {{is_unit_selected ../q.qoll_response.unit}}> {{this}}
+        {{/each}}
+      </div>
+    {{/if}}
+  {{/ionItem}}
+
+  {{#if has_images q.imageIds}}
+	  {{#ionItem}}
+	  Images to come here
+	  <!-- Images to come here -->
+	  		{{#each imgs q.imageIds}}
+	          <!-- img src="{{this.url store='thumbs_1'}}" class="qoll-thumbs" data-gallery id="{{this._id}}"/ -->
+	          fir dikhegaa {{this}}
+	        {{/each}}
+	  {{/ionItem}}
+  {{/if}}
+
+  {{#if q.hint}}
+	  {{#ionItem buttonRight=true iconLeft=true iconRight=true}}
+	    
+	    <button class="button button-energized button-small" title="Partial credit will be deducted..." id="show_hint">Hint{{> ionIcon icon="locked-left"}}</button>
+
+	      <!-- <button type="button" class="btn btn-warning pull-right" data-toggle="tooltip"
+	        data-placement="left" title="Partial credit will be deducted..." id="show_hint">Hint
+	      </button> -->
+	      <h3 class="{{get_hint_visibility q.qoll_response.usedHint}} red_1" id="hint">{{{q.hint}}} {{#if q.qoll_response.usedHint}} <u>(Already used hint)</u>{{/if}}</h3>
+	  {{/ionItem}}
+  {{/if}}
+
+  {{#if is_blank_type q.cat}}
+	  <!--span id="{{q._id}}" class="badge pull-left register-blank glossy green_bg_1"-->
+	  <span id="{{q._id}}" class="badge pull-left {{get_register_class q.context}} glossy {{get_register_bg_class q.context}}">
+	    Submit
+	  </span>
+  {{/if}}
+
+  {{#if is_not_blank_type q.cat}}
+  {{#ionList}}
+	{{#ionItem buttonRight=true buttonLeft=true iconLeft=true iconRight=true}}
+	  {{#each q.qollTypesX}}
+	 		{{> single_qoll_options qollType=this qoll=../q questionaire=../questionaire }}
+	  {{/each}}
+	{{/ionItem}}
+  {{/ionList}}
+  {{/if}}
+
+</template>

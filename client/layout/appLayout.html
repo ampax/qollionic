@@ -1,0 +1,17 @@
+<template name="layout">
+  {{> Template.dynamic template=environment}}
+</template>
+
+
+<template name="web">
+  <h2>On the Web</h2>
+</template>
+
+<template name="mobile">
+  {{#ionBody}}
+    {{> ionNavBar class="bar bar-header bar-assertive"}}
+    {{#ionNavView}}
+      {{> yield}}
+    {{/ionNavView}}
+  {{/ionBody}}
+</template>

@@ -1,0 +1,13 @@
+<template name="single_qoll_options">
+	<p>
+		<button class="button {{get_qoll_resp_class qoll.context}} {{qoll_abbr_class qollType.index qoll.context}} {{is_chk_selected qollType.index  qoll}} smart_devi_color"> 
+			{{qoll_type_abbr qollType.index}}
+		</button> 
+		{{{transform_txt qollType.type qoll.cat}}}
+		{{#if is_correct_answer qollType qoll.context}}
+			<button class="button button-balanced button-small button-circle" style="float: right;">
+	        	{{>ionIcon icon="checkmark-round"}}
+	        </button>
+		{{/if}}
+	</p>
+</template>

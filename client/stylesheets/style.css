@@ -1,0 +1,34 @@
+input.fib { 
+    height: 25px; 
+    width: 75px; 
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 1px 0px;  
+    border-color: #999999; /**darkred; **/
+    outline:0; 
+    display: inline-flex;
+}
+
+input.fib_write {
+    color: #003366;
+    font-weight: bolder;
+}
+
+input.fib_correct {
+}
+
+input.fib_wrong {
+}
+
+
+.is-invisible {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+.border-selected {
+    border-width: medium !important;
+    border-style: solid !important;
+    border-color: rgb(190, 180, 183) !important;
+    background-color: rgb(144, 77, 140) !important;
+}

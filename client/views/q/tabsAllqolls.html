@@ -1,0 +1,37 @@
+<template name="tabsAllqolls">
+  {{#ionView}}
+    {{> _ionic_qoll_tabs_header}}
+
+    {{#ionContent class="padding"}}
+      {{#ionList}}
+
+        {{#each all_qolls}}
+
+          {{#ionItem buttonRight=true iconLeft=true iconRight=true iconRight=true}}
+
+            <!-- img src="https://randomuser.me/api/portraits/thumb/men/27.jpg" -->
+            <!-- {{> _qollTypeButton}} -->
+            <!-- model=checkboxModel name="pushNotifications" disabled=checkboxDisabled -->
+            <h2>{{this.qollTitle}}</h2>
+            <p>
+              {{this.qollText}}
+            </p>
+            
+            <a href="{{pathFor 'viewQoll'}}" class="button button-positive" data-nav-direction="forward">{{> ionIcon icon="chevron-right"}}</a>
+        
+          {{/ionItem}}
+
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+
+    {{> _ionic_qoll_tabs}}
+    <!-- {{> _ionic_qoll_tabs_footer}} -->
+  {{/ionView}}
+</template>
+
+
+<template name="_qollTypeButton">
+  <button class="button button-dark vote-button">F10</button>
+</template>

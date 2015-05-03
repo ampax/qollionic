@@ -1,0 +1,45 @@
+<template name="_ionic_qoll_tabs">
+  {{#if isAndroid}}
+    {{#ionTabs class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Inbox" path="tabs.inbox" icon="android-paper"}}
+      {{> ionTab title="Sent" path="tabs.sentqolls" icon="android-star"}}
+      {{> ionTab title="Draft" path="tabs.draftqolls" icon="heart"}}
+      {{> ionTab title="Qolls" path="tabs.allqolls" icon="gear-b"}}
+    {{/ionTabs}}
+  {{else}}
+    {{#ionTabs style="ios"  class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Inbox" path="tabs.inbox" iconOff="ios-paper-outline" iconOn="ios-paper"}}
+      {{> ionTab title="Sent" path="tabs.sentqolls" iconOff="ios-star-outline" iconOn="ios-star"}}
+      {{> ionTab title="Draft" path="tabs.draftqolls" iconOff="ios-heart-outline" iconOn="ios-heart"}}
+      {{> ionTab title="Qolls" path="tabs.allqolls" iconOff="ios-gear-outline" iconOn="ios-gear"}}
+    {{/ionTabs}}
+  {{/if}}
+</template>
+
+
+<!-- Tabs to show up when user navigates to a Qoll -->
+<template name="_ionic_inbox_tabs">
+  {{#if isAndroid}}
+    {{#ionTabs class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Qolls" path="tabs.viewInboxQuest" icon="android-list"}}
+      {{> ionTab title="Result" path="tabs.inboxQollResult" icon="android-pie"}}
+    {{/ionTabs}}
+  {{else}}
+    {{#ionTabs style="ios"  class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Qolls" path="tabs.viewInboxQuest" iconOff="ios-list-outline" iconOn="ios-list"}}
+      {{> ionTab title="Result" path="tabs.inboxQollResult" iconOff="ios-pie-outline" iconOn="ios-pie"}}
+    {{/ionTabs}}
+  {{/if}}
+</template>
+
+<template name="_ionic_user_tabs">
+  {{#if isAndroid}}
+    {{#ionTabs class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Users" path="tabs.inbox" icon="ion-android-contacts"}}
+    {{/ionTabs}}
+  {{else}}
+    {{#ionTabs style="ios"  class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Users" path="tabs.inbox" iconOff="ios-home-outline" iconOn="ios-home"}}
+    {{/ionTabs}}
+  {{/if}}
+</template>

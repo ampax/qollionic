@@ -1,0 +1,51 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+aldeed:autoform
+aldeed:collection2
+anti:fake
+bengott:avatar
+dburles:collection-helpers
+iron:router
+matb33:collection-hooks
+meteoric:autoform-ionic
+momentjs:moment
+mrt:underscore-string-latest
+reactive-var
+reywood:publish-composite
+service-configuration
+zimme:iron-router-active
+accounts-base
+accounts-google
+accounts-password
+accounts-ui
+andruschka:bootstrap-image-gallery
+cfs:filesystem
+cfs:graphicsmagick
+cfs:gridfs
+cfs:standard-packages
+jparker:crypto-md5
+jquery
+long:google-contacts
+meteorhacks:fast-render
+meteorhacks:npm
+
+
+npm-container
+miguelalarcos:afwrap-xautocomplete
+mizzao:jquery-ui
+mrt:ace-embed
+mrt:datatables
+simple:katex
+semantic:ui-icon
+wylio:mandrill
+useraccounts:ionic
+meteorhacks:cluster
+meteoric:ionicons-sass
+meteoric:ionic
+fourseven:scss
+meteoric:ionic-sass

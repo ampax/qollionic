@@ -1,0 +1,38 @@
+<template name='view_qoll'>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton class="button button-clear" text=false}}
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Qoll Details</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+	    	<!-- {{> _ionic_qoll_header}} -->
+
+      		{{#ionList}}
+
+        		{{#each qoll}}
+
+        			{{> single_qoll q=this}}
+
+				{{/each}}
+
+      		{{/ionList}}
+		    <!-- {{> _ionic_qoll_tabs_footer}} -->
+	    {{/ionContent}}
+
+	    {{> _ionic_qoll_tabs}}
+
+	{{/ionView}}
+
+</template>
+
+
+<template name="_ionic_qoll_header">
+  {{#ionHeaderBar class="bar-positive"}}
+    {{> ionNavBackButton path="tabs.allqolls" }}
+    <h1 class="title">Qolls</h1>
+  {{/ionHeaderBar}}
+</template>

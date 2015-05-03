@@ -1,0 +1,64 @@
+<template name="qoll_tabs_layout">
+	{{#ionBody}}
+
+    {{#ionSideMenuContainer}}
+	      {{#ionSideMenus}}
+	        {{> _ionic_left_side_menu}}
+	        {{> _ionic_right_side_menu}}
+	      {{/ionSideMenus}}
+      
+	    {{#ionSideMenuContent}}
+
+	      {{> ionNavBar class="bar-positive"}}
+
+	        {{#ionNavView}}
+	          {{> yield}}
+	          {{> _ionic_qoll_tabs}}
+	        {{/ionNavView}}
+
+	    {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
+</template>
+
+
+<template name="qoll_inbox_tabs_layout">
+	{{#ionBody}}
+
+    {{#ionSideMenuContainer}}
+	      {{#ionSideMenus}}
+	        {{> _ionic_left_side_menu}}
+	        {{> _ionic_right_side_menu}}
+	      {{/ionSideMenus}}
+      
+	    {{#ionSideMenuContent}}
+
+	      {{> ionNavBar class="bar-positive"}}
+
+	        {{#ionNavView}}
+	          {{> yield}}
+	          {{> _ionic_inbox_tabs}}
+	        {{/ionNavView}}
+
+	    {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
+</template>
+
+
+
+<template name="qoll_tabs_layout_1">
+  {{#ionBody}}
+  	<!-- {{> ionNavBar class="item-input-inset bar-calm"}} -->
+  	{{> ionNavBar class="bar-positive"}}
+
+  	{{#ionView}}
+      {{> yield}}
+      {{> _ionic_qoll_tabs}}
+    {{/ionView}}
+  {{/ionBody}}
+</template>
