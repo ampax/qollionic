@@ -1,0 +1,24 @@
+<template name='tabsSentQollTrend'>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton class="button button-clear" text=false}}
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Sent Questionnaire: Trends</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+
+			Result grid to come here {{questId}}
+
+			<div style="height: 100%">
+		        <div id="container-column" style="min-width: 310px; height: 400px;"></div>
+	    	</div>
+	    
+	    {{/ionContent}}
+
+	    {{> _ionic_sent_tabs}}
+
+	{{/ionView}}
+</template>

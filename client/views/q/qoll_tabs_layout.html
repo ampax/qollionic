@@ -50,6 +50,60 @@
 </template>
 
 
+<template name="qoll_sent_tabs_layout">
+	{{#ionBody}}
+
+    {{#ionSideMenuContainer}}
+	      {{#ionSideMenus}}
+	        {{> _ionic_left_side_menu}}
+	        {{> _ionic_right_side_menu}}
+	      {{/ionSideMenus}}
+      
+	    {{#ionSideMenuContent}}
+
+	      {{> ionNavBar class="bar-positive"}}
+
+	        {{#ionNavView}}
+	          {{> yield}}
+	          {{> _ionic_sent_tabs}}
+	        {{/ionNavView}}
+
+	    {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
+</template>
+
+
+
+<template name="qoll_groups_tabs_layout">
+	{{#ionBody}}
+
+    {{#ionSideMenuContainer}}
+	      {{#ionSideMenus}}
+	        {{> _ionic_left_side_menu}}
+	        {{> _ionic_right_side_menu}}
+	      {{/ionSideMenus}}
+      
+	    {{#ionSideMenuContent}}
+
+	      {{> ionNavBar class="bar-positive"}}
+
+	        {{#ionNavView}}
+	          {{> yield}}
+	          {{> _ionic_groups_tabs}}
+	        {{/ionNavView}}
+
+	    {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
+</template>
+
+
+
 
 <template name="qoll_tabs_layout_1">
   {{#ionBody}}

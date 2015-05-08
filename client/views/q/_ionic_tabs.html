@@ -32,6 +32,40 @@
   {{/if}}
 </template>
 
+<!-- Tabs to show up when user navigates to sent questionnaire -->
+<template name="_ionic_sent_tabs">
+  {{#if isAndroid}}
+    {{#ionTabs class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Qolls" path="tabs.viewSentQuest" icon="android-list"}}
+      {{> ionTab title="Result" path="tabs.sentQollResult" icon="android-grid-view"}}
+      {{> ionTab title="Trend" path="tabs.sentQollTrend" icon="android-pie"}}
+    {{/ionTabs}}
+  {{else}}
+    {{#ionTabs style="ios"  class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Qolls" path="tabs.viewSentQuest" iconOff="ios-list-outline" iconOn="ios-list"}}
+      {{> ionTab title="Result" path="tabs.sentQollResult" iconOff="ios-grid-view-outline" iconOn="ios-grid-view"}}
+      {{> ionTab title="Trend" path="tabs.sentQollTrend" iconOff="ios-pie-outline" iconOn="ios-pie"}}
+    {{/ionTabs}}
+  {{/if}}
+</template>
+
+
+<!-- Tabs to show up when user navigates to the groups pages -->
+<template name="_ionic_groups_tabs">
+  {{#if isAndroid}}
+    {{#ionTabs class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Owner" path="tabs.groupsOwned" icon="android-people-outline"}}
+      {{> ionTab title="Subscriber" path="tabs.groupsSubscribed" icon="android-people-outline"}}
+    {{/ionTabs}}
+  {{else}}
+    {{#ionTabs style="ios"  class="tabs-background-positive tabs-icon-left tabs-color-light"}}
+      {{> ionTab title="Owner" path="tabs.groupsOwned" iconOff="ios-people-outline-outline" iconOn="ios-people-outline"}}
+      {{> ionTab title="Subscriber" path="tabs.groupsSubscribed" iconOff="ios-people-outline-outline" iconOn="ios-people-outline"}}
+    {{/ionTabs}}
+  {{/if}}
+</template>
+
+
 <template name="_ionic_user_tabs">
   {{#if isAndroid}}
     {{#ionTabs class="tabs-background-positive tabs-icon-left tabs-color-light"}}

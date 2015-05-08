@@ -71,11 +71,17 @@ Router.map(function() {
 		controller : ViewQuestionnaireController
 	});
 
-	this.route('viewSentQuestionnaire', {
+	/** this.route('viewSentQuestionnaire', {
 		template : 'view_sent_quest',
 		path : '/view_sent_quest/:_id',
 		controller : ViewQuestionnaireController
-	});
+	}); **/
+
+	/** tabs for sent here **/
+	this.route('tabs.viewSentQuest', {path : '/tabs/sent/quest/:_id', layoutTemplate: 'qoll_sent_tabs_layout', controller : ViewQuestionnaireController});
+	this.route('tabs.sentQollResult', {path : '/tabs/sent/quest_result/:_id', layoutTemplate: 'qoll_sent_tabs_layout', controller : ViewQuestionnaireController});
+	this.route('tabs.sentQollTrend', {path : '/tabs/sent/quest_trend/:_id', layoutTemplate: 'qoll_sent_tabs_layout', controller : ViewQuestionnaireController});
+
 
 	/** this.route('viewInboxQuestionnaire', {
 		template : 'tabsViewInboxQuest',
@@ -86,6 +92,13 @@ Router.map(function() {
 	/** tabs for inbox here **/
 	this.route('tabs.viewInboxQuest', { path: '/tabs/inbox/quest/:_id', layoutTemplate: 'qoll_inbox_tabs_layout', controller : ViewQuestionnaireController});
 	this.route('tabs.inboxQollResult', {path: '/tabs/inbox/quest_result/:_id', layoutTemplate: 'qoll_inbox_tabs_layout', controller : ViewQuestionnaireController});
+  	
+
+  	this.route('tabs.groupsOwned', { path: '/tabs/groups/owned', layoutTemplate: 'qoll_groups_tabs_layout'});
+  	this.route('tabs.groupsSubscribed', { path: '/tabs/groups/subscribed', layoutTemplate: 'qoll_groups_tabs_layout'});
+	
+
+
   /** } else {
 
   	template: 'tabsViewInboxQuest',

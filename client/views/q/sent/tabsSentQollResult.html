@@ -1,0 +1,50 @@
+<template name='tabsSentQollResult'>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton class="button button-clear" text=false}}
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Sent Questionnaire: Results</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+
+			{{#ionList}}
+      			
+        		{{#each qollst.questionaire.questResponse.stats}}
+	        		{{#ionItem}}
+	        			<h2 class="respondent-bg">{{this.name}}</h2>
+
+	        			{{#each this.responses}}
+	        				<div class="row responsive-sm respondent-row-style">
+			        			<div class="col"><button class="button button-small" data-ion-modal="_qollModal">{{this.label}}</button></div>
+			        			<div class="col col-67"><p>{{this.title}}</p></div>
+			        			<div class="col col-20">
+				        			<h2>{{this.response}}</h2>
+		    					</div>
+		    					<div class="col">{{{this.iscorrect}}}</div>
+	    					</div>
+	        			{{/each}}
+		        		<!-- <div class="row">
+		        			<div class="col">{{this.name}}</div>
+		        			<div class="col col-75">
+			        			<h2>{{this.qoll_idx_title}} {{{transform_txt this.title this.cat QollConstants.CONTEXT.READ this.fib}}}</h2>
+	    						<p>{{{transform_txt this.qollText this.cat QollConstants.CONTEXT.READ this.fib}}}</p>
+	    					</div>
+	    					<div class="col">{{get_qoll_result this.qoll_response}}</div>
+    					</div> -->
+	        		{{/ionItem}}
+        		{{/each}}
+
+        	{{/ionList}}
+
+		
+			Result grid to come here {{questId}}
+	    
+	    {{/ionContent}}
+
+	    {{> _ionic_sent_tabs}}
+
+	{{/ionView}}
+</template>

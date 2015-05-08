@@ -1,5 +1,245 @@
 var filename='client/views/q/inbox/tabsInboxQollResult.js';
 
-/**Template.tabsInboxQollResult.rendered = function() {
-	Session.set('currentTab', 'tabsInboxQollResult');
-};**/
+Template.tabsInboxQollResult.helpers({
+    get_qoll_result : function(q) {
+        if(q === undefined || q.qoll_response === undefined || q.qoll_response.iscorrect === undefined) {
+            return 'NA';
+        } else if(q.qoll_response.iscorrect) {
+            console.log('================> '+q.qoll_response.iscorrect);
+            return 'Correct';
+        } else {
+            return 'InCorrect';
+        }
+    },
+	qollst : function() {
+		qlog.info('Called to get the qollst here ...', filename);
+		var qollst = QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
+
+		if(qollst)
+		qollst.qolls.map(function(q){
+			qlog.info("==========================");
+			console.log(q);
+            if(q.qoll_response) console.log(q.qoll_response.iscorrect);
+		});
+		return qollst;
+	},
+	questId : function() {
+		return Session.get('questionnaire_id');
+	},
+	transform_txt : function(txt, cat, context, fib) {
+    qlog.info('Printing fill in the blanks - ' + fib, filename);
+    if(cat != QollConstants.QOLL_TYPE.BLANK)
+      return txt;
+
+    var disabled = '';
+    if(context === QollConstants.CONTEXT.READ)
+      disabled = 'DISABLED';
+
+    if(txt.match(QollRegEx.fib_transf))
+      qlog.info('hell this is printed', filename);
+
+    while (matches = QollRegEx.fib_transf.exec(txt)) {
+      //qlog.info('matches - ' + matches, filename);
+      var idx = matches[0].substring(1, matches[0].length-1);
+      idx = Number(idx)+1;
+
+            var placeholder = '';
+            var fib_val = '';
+            if(context === QollConstants.CONTEXT.READ) {
+              //put the read only values for fib
+              placeholder = idx + ':' + fib[idx-1];
+            } else {
+              if(fib == undefined)
+                fib_val = '';
+              else fib_val = fib[idx-1] == undefined ? '' : fib[idx-1];
+              placeholder ='';
+            }
+            
+            txt = txt.replace(matches[0], '<input class="textbox fib fib_write" type="text" placeholder="'+placeholder+ '" ' +disabled+' value="'+fib_val+'">');
+            //cntr++;
+            qlog.info('##############=> ' + idx, filename);
+            //break;
+        }
+
+    return txt;
+  },
+});
+
+Template.tabsInboxQollResult.onCreated(function(){
+	Session.set('context', QollConstants.CONTEXT.READ);
+	var userId = Meteor.userId();
+	var _id = this._id;
+
+	var dataContext = Template.currentData();
+	
+    SearchConn.subscribe('QOLL_FOR_QUESTIONAIRE_ID_PUBLISHER', 
+    	{userId: userId, _id : Session.get('questionnaire_id'), context : Session.get('context')});
+
+    SearchConn.subscribe('images');
+    
+    qlog.info('Loading inbox for userId/_id ====> ' + userId + '/' + _id + '/' + Session.get('questionnaire_id'), filename);
+
+    qlog.info('Printing QollForQuestionaireId ==========> ' + JSON.stringify(QollForQuestionaireId.find().fetch()));
+});
+
+
+Template.tabsInboxQollResult.onDestroyed(function () {
+  // deregister from some central store
+  // Session.set('questionnaire_id', undefined);
+});
+
+/*
+ * Function to draw the pie chart
+ */
+function builtPie() {
+    
+    // 'external' data
+    var data = new Array();
+
+    data.push({
+        name: 'Level 0',
+        y: 10,
+        color: '#55BF3B'
+    });
+
+    data.push({
+        name: 'Level 1',
+        y: 12,
+        color: '#DDDF0D'
+    });
+
+    data.push({
+        name: 'Level 2',
+        y: 30,
+        color: '#DF5353'
+    });
+
+    $('#container-pie').highcharts({
+        
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        
+        title: {
+            text: ''
+        },
+        
+        credits: {
+            enabled: false
+        },
+        
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        
+        series: [{
+            type: 'pie',
+            name: 'Anteil',
+            data: data
+        }]
+    });
+}
+
+/*
+ * Function to draw the column chart
+ */
+function builtColumn() {
+
+    $('#container-column').highcharts({
+        
+        chart: {
+            type: 'column'
+        },
+        
+        title: {
+            text: 'Monthly Average Rainfall'
+        },
+        
+        subtitle: {
+            text: 'Source: WorldClimate.com'
+        },
+        
+        credits: {
+            enabled: false
+        },
+        
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ]
+        },
+        
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rainfall (mm)'
+            }
+        },
+        
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        
+        series: [{
+            name: 'Tokyo',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+        }, {
+            name: 'New York',
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+        }, {
+            name: 'London',
+            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+        }, {
+            name: 'Berlin',
+            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+        }]
+    });
+}
+
+/*
+ * Call the function to built the chart when the template is rendered
+ */
+Template.tabsInboxQollResult.rendered = function() {    
+    builtColumn();
+    builtPie();
+}

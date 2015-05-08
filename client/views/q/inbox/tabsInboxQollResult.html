@@ -10,7 +10,43 @@
 	{{#ionView}}
 		{{#ionContent}}
 
-			Results to come here ....
+			{{#ionList}}
+      			
+        		{{#each qollst.qolls}}
+	        		{{#ionItem}}
+		        		<div class="row">
+		        			<div class="col col-75">
+			        			<h2>{{this.qoll_idx_title}} {{{transform_txt this.title this.cat QollConstants.CONTEXT.READ this.fib}}}</h2>
+	    						<p>{{{transform_txt this.qollText this.cat QollConstants.CONTEXT.READ this.fib}}}</p>
+	    					</div>
+	    					<div class="col">{{get_qoll_result this.qoll_response}}</div>
+    					</div>
+	        		{{/ionItem}}
+        		{{/each}}
+
+        	{{/ionList}}
+          
+
+          <div class="row">
+			  <div class="col col-50">.col.col-50</div>
+			  <div class="col">.col</div>
+			  <div class="col">.col</div>
+			</div>
+
+			<div class="row">
+			  <div class="col col-75">.col.col-75</div>
+			  <div class="col">.col</div>
+			</div>
+
+			<div class="row">
+			  <div class="col">.col</div>
+			  <div class="col col-75">.col.col-75</div>
+			</div>
+
+			<div class="row">
+			  <div class="col">.col</div>
+			  <div class="col">.col</div>
+			</div>
 	    
 	    {{/ionContent}}
 

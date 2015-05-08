@@ -32,9 +32,5 @@ Template.tabsViewInboxQuest.onCreated(function(){
 
 Template.tabsViewInboxQuest.onDestroyed(function () {
   // deregister from some central store
-  Session.set('questionnaire_id', undefined);
+  // Session.set('questionnaire_id', undefined);
 });
-
-/**Template.view_inbox_quest.rendered = function() {
-	Session.set('currentTab', 'viewQoll');
-};**/
