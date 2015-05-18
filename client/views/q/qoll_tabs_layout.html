@@ -4,7 +4,7 @@
     {{#ionSideMenuContainer}}
 	      {{#ionSideMenus}}
 	        {{> _ionic_left_side_menu}}
-	        {{> _ionic_right_side_menu}}
+	        <!-- {{> _ionic_right_side_menu}} -->
 	      {{/ionSideMenus}}
       
 	    {{#ionSideMenuContent}}
@@ -30,7 +30,7 @@
     {{#ionSideMenuContainer}}
 	      {{#ionSideMenus}}
 	        {{> _ionic_left_side_menu}}
-	        {{> _ionic_right_side_menu}}
+	        <!-- {{> _ionic_right_side_menu}} -->
 	      {{/ionSideMenus}}
       
 	    {{#ionSideMenuContent}}
@@ -56,7 +56,7 @@
     {{#ionSideMenuContainer}}
 	      {{#ionSideMenus}}
 	        {{> _ionic_left_side_menu}}
-	        {{> _ionic_right_side_menu}}
+	        <!--  {{> _ionic_right_side_menu}} -->
 	      {{/ionSideMenus}}
       
 	    {{#ionSideMenuContent}}
@@ -83,7 +83,7 @@
     {{#ionSideMenuContainer}}
 	      {{#ionSideMenus}}
 	        {{> _ionic_left_side_menu}}
-	        {{> _ionic_right_side_menu}}
+	        <!-- {{> _ionic_right_side_menu}} -->
 	      {{/ionSideMenus}}
       
 	    {{#ionSideMenuContent}}
@@ -93,6 +93,31 @@
 	        {{#ionNavView}}
 	          {{> yield}}
 	          {{> _ionic_groups_tabs}}
+	        {{/ionNavView}}
+
+	    {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
+</template>
+
+<template name="qoll_blank_tabs_layout">
+	{{#ionBody}}
+
+    {{#ionSideMenuContainer}}
+	      {{#ionSideMenus}}
+	        {{> _ionic_left_side_menu}}
+	        <!-- {{> _ionic_right_side_menu}} -->
+	      {{/ionSideMenus}}
+      
+	    {{#ionSideMenuContent}}
+
+	      {{> ionNavBar class="bar-positive"}}
+
+	        {{#ionNavView}}
+	          {{> yield}}
+	          {{> _ionic_blank_tabs}}
 	        {{/ionNavView}}
 
 	    {{/ionSideMenuContent}}

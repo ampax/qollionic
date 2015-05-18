@@ -7,17 +7,26 @@
 
         {{#each all_qolls}}
 
-          {{#ionItem buttonRight=true iconLeft=true iconRight=true iconRight=true}}
+          {{#ionItem buttonRight=true iconLeft=true iconRight=true}}
 
             <!-- img src="https://randomuser.me/api/portraits/thumb/men/27.jpg" -->
             <!-- {{> _qollTypeButton}} -->
             <!-- model=checkboxModel name="pushNotifications" disabled=checkboxDisabled -->
-            <h2>{{this.qollTitle}}</h2>
-            <p>
-              {{this.qollText}}
-            </p>
-            
-            <a href="{{pathFor 'viewQoll'}}" class="button button-positive" data-nav-direction="forward">{{> ionIcon icon="chevron-right"}}</a>
+            <a href="{{pathFor 'viewQoll'}}">
+              <h2>{{this.qollTitle}}</h2>
+              <p>
+                {{this.qollText}}
+              </p>
+            </a>
+
+            <!-- <button class="button button-positive button-calm add-for-quest" id="qoll{{this._id}}" data-nav-direction="forward">{{> ionIcon icon="plus"}}</button> -->
+
+            <!-- button class="button button-positive button-calm add-for-quest" id="qoll{{this._id}}" data-nav-direction="forward">{{> ionIcon icon="plus"}}</button -->
+            {{#if is_selected this._id}}
+              <a class="button button-icon icon ion-android-radio-button-on remove-for-quest" id="qoll{{this._id}}"></a>
+            {{else}}
+              <a class="button button-icon icon ion-android-radio-button-off add-for-quest" id="qoll{{this._id}}"></a>
+            {{/if}}
         
           {{/ionItem}}
 

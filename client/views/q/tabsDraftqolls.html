@@ -10,15 +10,14 @@
           {{#ionItem buttonRight=true iconLeft=true iconRight=true}}
 
             <!-- img src="https://randomuser.me/api/portraits/thumb/men/27.jpg" -->
-            {{> _questionaireSizeButton this.qoll_count}}
-
-            <h2>{{this.title}}</h2>
+            <a href="{{pathFor 'viewDraftQuestionnaire'}}">
+            <h2>{{this.title}} - {{this._id}}</h2>
             <p>
               Recipients: {{this.recips_count}}, Sent: {{this.submitted_on}}
             </p>
-            <!-- button class="button button-positive">{{> ionIcon icon="chevron-right"}}</button -->
+          </a>
 
-            <a href="{{pathFor 'viewDraftQuestionnaire'}}" class="button button-positive" data-nav-direction="forward">{{> ionIcon icon="chevron-right"}}</a>
+            <a class="button quest-button-send" data-nav-direction="forward">{{> ionIcon icon="ios-paperplane"}}</a>
 
           {{/ionItem}}
 

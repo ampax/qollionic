@@ -12,13 +12,24 @@
 
 			{{#ionList}}
       			
-        		{{#each qollst.questionaire.questResponse.stats}}
+        		{{#each qollst.stats}}
 	        		{{#ionItem}}
 	        			<h2 class="respondent-bg">{{this.name}}</h2>
 
 	        			{{#each this.responses}}
 	        				<div class="row responsive-sm respondent-row-style">
-			        			<div class="col"><button class="button button-small" data-ion-modal="_qollModal">{{this.label}}</button></div>
+			        			<div class="col">
+			        				<button class="button button-small" 
+			        				data-title="{{this.title}}" 
+			        				data-questionaire_id="{{questId}}"
+			        				data-qid="{{this.qoll_id}}"
+			        				data-responder_id="{{this.email}}"
+			        				data-data="{{resp_qoll questId this.qoll_id this.email}}"
+			        				data-data1="{{this}}"
+			        				data-ion-modal="_qollModal">
+			        					{{this.label}}
+			        				</button>
+			        			</div>
 			        			<div class="col col-67"><p>{{this.title}}</p></div>
 			        			<div class="col col-20">
 				        			<h2>{{this.response}}</h2>
@@ -40,7 +51,7 @@
         	{{/ionList}}
 
 		
-			Result grid to come here {{questId}}
+			<!-- Result grid to come here {{questId}} -->
 	    
 	    {{/ionContent}}
 

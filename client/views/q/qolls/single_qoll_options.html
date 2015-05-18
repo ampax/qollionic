@@ -5,9 +5,21 @@
 		</button> 
 		{{{transform_txt qollType.type qoll.cat}}}
 		{{#if is_correct_answer qollType qoll.context}}
-			<button class="button button-balanced button-small button-circle" style="float: right;">
-	        	{{>ionIcon icon="checkmark-round"}}
-	        </button>
+			{{#if isAndroid}}
+				<button class="button button-balanced" style="float: right;">
+		        	{{>ionIcon icon="android-checkmark-circle"}}
+		        </button>
+	        {{else}}
+	        	<button class="button button-balanced" style="float: right;">
+		        	{{>ionIcon icon="ios-checkmark-outline"}}
+		        </button>
+	      	{{/if}}
+	      	
+	        <!-- {{#if isAndroid}}
+	        	{{> ionIcon class='button-balanced' icon='android-checkmark-circle'}}
+	      	{{else}}
+	        	{{> ionIcon icon='ios-checkmark-outline'}}
+	      	{{/if}} -->
 		{{/if}}
 	</p>
 </template>

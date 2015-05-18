@@ -28,8 +28,6 @@ Template.view_qoll.onCreated(function(){
 
     SearchConn.subscribe('RAW_QOLL_FOR_ID_PUBLISHER', {userId: userId, _id : Session.get('qoll_id')});
 
-    SearchConn.subscribe('images');
-    
     qlog.info('Loading inbox for userId/_id ====> ' + userId + '/' + _id + '/' + Session.get('qoll_id'), filename);
 
     qlog.info('Printing RawQollForId ==========> ' + JSON.stringify(RawQollForId.find().fetch()));

@@ -11,16 +11,11 @@ Template.tabsSentQollResult.helpers({
 			console.log(q);
             if(q.qoll_response) console.log(q.qoll_response.iscorrect);
 		}); **/
-		console.log(QollForQuestionaireId.find());
+		// console.log(QollForQuestionaireId.find());
 		return QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
 	},
 	questId : function() {
-		var qollst = QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
-		if(qollst) {
-			return qollst.questionaire.questId;
-		}
-
-		return '';
+		return Session.get('questionnaire_id');;
 	},
 	stats : function() {
 		var qollst = QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
@@ -30,11 +25,26 @@ Template.tabsSentQollResult.helpers({
 		}
 
 		// return [];
-	}
+	},
+	resp_qoll : function(questionaire_id, qid, responder_id) {
+		console.log("#######################=#######################");
+		var userId = Meteor.userId();
+		console.log( questionaire_id + '/' + qid + '/' + responder_id);
+		var qlls = SearchConn.call("findQollForRespondend", userId, questionaire_id, qid, responder_id, QollConstants.CONTEXT.READ, function(err, qolls) {
+		  if(err) throw err;
+		  console.log("here is list of qolls ------>", qolls);
+		  console.log(qolls);
+		  console.log("---------------------------->");
+
+		  return qolls;
+		});
+
+		return qlls;
+	},
 });
 
 Template.tabsSentQollResult.onCreated(function(){
-	Session.set('context', QollConstants.CONTEXT.READ);
+	/** Session.set('context', QollConstants.CONTEXT.READ);
 	var userId = Meteor.userId();
 	var _id = this._id;
 
@@ -43,9 +53,7 @@ Template.tabsSentQollResult.onCreated(function(){
     SearchConn.subscribe('QOLL_FOR_QUESTIONAIRE_ID_PUBLISHER', 
     	{userId: userId, _id : Session.get('questionnaire_id'), context : Session.get('context')});
 
-    SearchConn.subscribe('images');
-    
-    qlog.info('Loading inbox for userId/_id ====> ' + userId + '/' + _id + '/' + Session.get('questionnaire_id'), filename);
-
-    qlog.info('Printing QollForQuestionaireId ==========> ' + JSON.stringify(QollForQuestionaireId.find().fetch()));
+    SearchConn.subscribe('images'); **/
 });
+
+

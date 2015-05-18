@@ -9,6 +9,10 @@
 //QollServerConn = Cluster.discoverConnection('qollserver');
 
 
+// Cluster.connect("mongodb://localhost:3001/meteor");
+// Cluster.register("qollionic");
+// Cluster.allowPublicAccess("qollserver");
+
 SearchConn = Cluster.discoverConnection('qollserver');
 
 RawQollForId = new Mongo.Collection('raw-qoll-for-id', SearchConn);
@@ -22,8 +26,10 @@ ISentQuestionaire = new Mongo.Collection("sent-by-me-questionaire", SearchConn);
 IStoredQuestionaire = new Mongo.Collection('stored-by-me-questionaire', SearchConn);
 QollForQuestionaireId = new Mongo.Collection('qoll-for-questionaire-id', SearchConn);
 
+QollForIds = new Mongo.Collection('qolls_for_ids', SearchConn);
+AllMyActiveQolls = new Mongo.Collection('all_my_active_qolls', SearchConn);
 
 
-FetchImages = new Mongo.Collection('images', SearchConn);
+// FetchImages = new Mongo.Collection('images', SearchConn);
 
 // qlog.info('Printing QbSummary - ' + JSON.stringify(QbSummary.find().fetch()));

@@ -83,7 +83,7 @@ Template.single_qoll.helpers({
       return false;
     }
   },
-  imgs : function(img_ids) {
+  imgs1 : function(img_ids) {
       console.log('------------------------');
       console.log(img_ids);
 
@@ -95,6 +95,13 @@ Template.single_qoll.helpers({
       console.log('------------------------');
       console.log(imgs2.fetch());
       return img_ids;
+    },
+    imgs: function(img_ids) {
+      console.log(img_ids);
+      if(!img_ids) return [];
+      //var imgs1 = QollImages.find({'_id': {$in: img_ids}});
+      // return imgs1;
+      return [];
     },
     is_blank_type : function(cat) {
     return _.contains([QollConstants.QOLL_TYPE.BLANK, QollConstants.QOLL_TYPE.BLANK_DBL], cat);
@@ -136,12 +143,12 @@ Template.single_qoll.events({
 });
 
 Template.single_qoll.onCreated(function(){
-  SearchConn.subscribe('images');
+  // SearchConn.subscribe('images');
     
   qlog.info('Loading inbox for userId ====> ' + userId, filename);
 
   //QbSummary = new Mongo.Collection('qbank_summary', SearchConn);
 
-  qlog.info('Printing images ==========> ' + JSON.stringify(FetchImages.find().fetch()));
+  // qlog.info('Printing images ==========> ' + JSON.stringify(FetchImages.find().fetch()));
 });
 

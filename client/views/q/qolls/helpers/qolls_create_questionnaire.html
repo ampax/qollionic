@@ -1,0 +1,56 @@
+<template name="qolls_create_questionnaire">
+	{{#ionView}}
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton class="button button-clear" text=false}}
+		{{/contentFor}}
+
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">Create Questionnaire</h1>
+		{{/contentFor}}
+
+		{{#ionContent}}
+	    	<!-- {{> _ionic_qoll_header}} -->
+	    	{{#ionItem}}
+	    	<span><label class="item item-input quest_title-bg">
+			    <!-- span class="input-label red" style="color: whitesmoke">Emails/Groups</span -->
+			    <input type="text" name="quest_title" id="quest_title" style="color: whitesmoke" placeholder="Questionnaire Title">
+			    
+			</label></span>
+			
+	    	<span><label class="item item-input share_with-bg">
+			    <!-- span class="input-label red" style="color: whitesmoke">Emails/Groups</span -->
+			    <input type="text" name="share_with" id="share_with" style="color: whitesmoke" placeholder="Emails;Groups">
+			    
+			</label>
+			<!-- button class="button icon ion-gear-a"></button -->
+			<!-- a class="button button-icon icon ion-plus create-quest"></a -->
+
+			<!-- a class="button button-icon icon ion-ios-paperplane send-quest"></a -->
+		</span>
+			<!-- {{> ionIcon icon='share'}} -->
+
+			<br><div class="button-bar">
+			  <a class="button quest-button-store store-quest icon ion-ios-box"> Store</a>
+			  <a class="button quest-button-send send-quest icon ion-ios-paperplane"> Send</a>
+			  <!-- a class="button icon ion-gear-a">Third</a -->
+			</div>
+
+			{{/ionItem}}
+
+      		{{#ionList}}
+      			
+        		{{#each tocreatequest_qolls}}
+        		
+
+        			{{> single_qoll q=this}}
+
+				{{/each}}
+
+      		{{/ionList}}
+		    <!-- {{> _ionic_qoll_tabs_footer}} -->
+	    {{/ionContent}}
+
+	    {{> _ionic_blank_tabs}}
+
+	{{/ionView}}
+</template>

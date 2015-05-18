@@ -159,5 +159,22 @@ Template.single_qoll_options.events({
   },
 });
 
+Template.single_qoll_options.onCreated(function(){
+  // SearchConn.subscribe('images_cluster');
+
+  qlog.info(">>>=========================<<<", filename);
+  // console.log(Posts.find().fetch())
+
+
+  var remote = DDP.connect('http://localhost:3000/');
+  Items = new Meteor.Collection('images', remote); 
+
+  remote.subscribe('images', function() {
+    var items = Items.find();
+    console.log('================== STARTING ON REMOTE CONNECTION ===================');
+    console.log(items.count());  // get 1         
+  });
+});
+
 
 

@@ -95,20 +95,27 @@ Accounts.onCreateUser(function(options, user){
 
 Accounts.validateLoginAttempt(function(attempt){
   qlog.info('Validating login attempt from qollhunt - ' + JSON.stringify(attempt), filename);
-    if (attempt.error){
-        var reason = attempt.error.reason;
-        qlog.info('Will be increasing the count here ... ' + attempt.error.reason, filename);
-        if (reason === "User not found" || reason === "Incorrect password" || 
-            reason === "Username already exists." || reason === 'Email already exists.' ){
-            qlog.info('Incorrect pasword or user not found .... throwing error ... ' + reason);
-            //throw new Meteor.Error(403, "Login forbidden 123");
-            //throw new Error("Login forbidden 123");
-            throw new Meteor.Error(403, reason, 'Incorrect password or user not found error happened [' + reason +']');
-            //throw "Login forbidden 123";
-            //return false;
-        }
-    }
-    return true;
+
+  /** if (attempt.user && attempt.user.emails && !attempt.user.emails[0].verified ) {
+    console.log('email not verified');
+    throw new Meteor.Error(403, reason, 'Please check your email and verify user account [' + reason +']');
+    return false; // the login is aborted
+  } **/
+
+  if (attempt.error){
+      var reason = attempt.error.reason;
+      qlog.info('Will be increasing the count here ... ' + attempt.error.reason, filename);
+      if (reason === "User not found" || reason === "Incorrect password" || 
+          reason === "Username already exists." || reason === 'Email already exists.' ){
+          qlog.info('Incorrect pasword or user not found .... throwing error ... ' + reason);
+          //throw new Meteor.Error(403, "Login forbidden 123");
+          //throw new Error("Login forbidden 123");
+          throw new Meteor.Error(403, reason, 'Incorrect password or user not found error happened [' + reason +']');
+          //throw "Login forbidden 123";
+          //return false;
+      }
+  }
+  return true;
 });
 
 

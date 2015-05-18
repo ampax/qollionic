@@ -9,14 +9,32 @@
     </button>
   {{/contentFor}}
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Qoll</h1>
-    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+    {{#if isAndroid}}
+      <h1 class="title" style="padding-left: 10%;">Qoll</h1>
+    {{else}}
+      <h1 class="title">Qoll</h1>
+    {{/if}}
+    <button class="button button-clear btn-qoll-action" data-action="showActionSheet"> 
+      <!-- Check qoll_tabs_layout for event handling -->
+      {{> ionIcon icon='ios-upload-outline'}}
+    </button>
+
+    <!-- button class="button button-clear" data-ion-modal="new_product" -->
+    <button class="button button-clear" data-ion-modal="new_qoll">
+      {{#if isAndroid}}
+        {{> ionIcon icon='android-add'}}
+      {{else}}
+        {{> ionIcon icon='ios-plus-empty'}}
+      {{/if}}
+    </button>
+
+    <!-- button class="button button-clear pull-right" data-ion-menu-toggle="right">
       {{#if isAndroid}}
         {{> ionIcon icon='android-more-vertical'}}
       {{else}}
         {{> ionIcon icon='navicon'}}
       {{/if}}
-    </button>
+    </button -->
   {{/contentFor}}
 </template>
 

@@ -20,6 +20,22 @@ input.fib_correct {
 input.fib_wrong {
 }
 
+a {
+    text-decoration: none !important;
+}
+
+a:link, a:visited {
+    /**/
+    /**color: rgb(0, 0, 153);**/
+    text-decoration: none !important;
+}
+
+a:hover, a:active {
+    /**/
+    /*8color: rgb(0, 96, 255);**/
+    text-decoration: none !important;
+}
+
 
 .is-invisible {
     visibility: hidden !important;
@@ -47,3 +63,32 @@ input.fib_wrong {
     border-top-style: solid;
     border-width: thin;
 }
+
+.share_with-bg { 
+    background-color: #246BB2;
+    color: whitesmoke;
+}
+
+.quest_title-bg { 
+    background-color: rgb(92, 93, 95);
+    color: whitesmoke;
+}
+
+.quest-button-store {
+    background-color: #5F7790;
+    color: whitesmoke;
+}
+
+.quest-button-send {
+    background-color: rgb(66, 90, 137);
+    color: whitesmoke;
+}
+
+.signout-text {
+    color: whitesmoke !important;
+}
+
+.signout-bg {
+    background-color: #0066CC !important;
+}
+

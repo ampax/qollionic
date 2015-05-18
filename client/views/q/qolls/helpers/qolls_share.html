@@ -1,0 +1,40 @@
+<template name="qolls_share">
+	{{#ionView}}
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton class="button button-clear" text=false}}
+		{{/contentFor}}
+
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">Share Qolls</h1>
+		{{/contentFor}}
+
+		{{#ionContent}}
+	    	<!-- {{> _ionic_qoll_header}} -->
+	    	{{#ionItem iconRight=true}}
+	    	<label class="item item-input share_with-bg">
+			    <!-- span class="input-label red" style="color: whitesmoke">Emails/Groups</span -->
+			    <input type="text" name="share_with" id="share_with" style="color: whitesmoke" placeholder="Emails;Groups">
+			    
+			</label>
+			<!-- button class="button icon ion-gear-a"></button -->
+			<a class="button button-icon icon ion-share qolls-share"></a>
+			<!-- {{> ionIcon icon='share'}} -->
+			{{/ionItem}}
+
+      		{{#ionList}}
+      			
+        		{{#each toshare_qolls}}
+        		
+
+        			{{> single_qoll q=this}}
+
+				{{/each}}
+
+      		{{/ionList}}
+		    <!-- {{> _ionic_qoll_tabs_footer}} -->
+	    {{/ionContent}}
+
+	    {{> _ionic_blank_tabs}}
+
+	{{/ionView}}
+</template>
