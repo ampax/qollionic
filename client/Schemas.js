@@ -40,6 +40,10 @@ quick_qoll = new SimpleSchema({
   }
 });
 
+custom_user = new SimpleSchema({
+  //
+});
+
 
 //Products = new Mongo.Collection('products');
 

@@ -89,6 +89,11 @@ Accounts.onCreateUser(function(options, user){
     'editor_mode': QollConstants.EDITOR_MODE.HTML, 
     'access_mode' : QollConstants.QOLL.VISIBILITY.PUB});
 
+  // we wait for Meteor to create the user before sending an email
+  Meteor.setTimeout(function() {
+    Accounts.sendVerificationEmail(user._id);
+  }, 2 * 1000);
+
   return user;
 });
 
@@ -96,11 +101,11 @@ Accounts.onCreateUser(function(options, user){
 Accounts.validateLoginAttempt(function(attempt){
   qlog.info('Validating login attempt from qollhunt - ' + JSON.stringify(attempt), filename);
 
-  /** if (attempt.user && attempt.user.emails && !attempt.user.emails[0].verified ) {
+  if (attempt.user && attempt.user.emails && !attempt.user.emails[0].verified ) {
     console.log('email not verified');
-    throw new Meteor.Error(403, reason, 'Please check your email and verify user account [' + reason +']');
+    throw new Meteor.Error(100002, reason, 'Please check your email and verify user account [' + reason +']');
     return false; // the login is aborted
-  } **/
+  }
 
   if (attempt.error){
       var reason = attempt.error.reason;
