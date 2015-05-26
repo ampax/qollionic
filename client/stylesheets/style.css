@@ -80,7 +80,7 @@ a:hover, a:active {
 }
 
 .quest-button-send {
-    background-color: rgb(66, 90, 137);
+    background-color: rgb(210, 67, 67) !important;
     color: whitesmoke;
 }
 
@@ -89,6 +89,17 @@ a:hover, a:active {
 }
 
 .signout-bg {
-    background-color: #0066CC !important;
+    background-color: rgb(210, 67, 67) !important;
 }
 
+.active-menu-bg {
+    background-color: #444444 !important;
+}
+
+.button-qollcount {
+    background-color: #5A5962 !important;
+}
+
+.icon-chevron-right-qoll, .add-for-quest, .remove-for-quest {
+    color: rgb(210, 67, 67) !important;
+}

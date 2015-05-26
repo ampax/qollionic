@@ -11,11 +11,11 @@
 
             <!-- img src="https://randomuser.me/api/portraits/thumb/men/27.jpg" -->
             <a href="{{pathFor 'viewDraftQuestionnaire'}}">
-            <h2>{{this.title}} - {{this._id}}</h2>
-            <p>
-              Recipients: {{this.recips_count}}, Sent: {{this.submitted_on}}
-            </p>
-          </a>
+              <h2>{{this.title}} - {{this._id}}</h2>
+              <p>
+                Recipients: {{this.recips_count}}, Sent: {{this.submitted_on}}
+              </p>
+            </a>
 
             <a class="button quest-button-send" data-nav-direction="forward">{{> ionIcon icon="ios-paperplane"}}</a>
 
@@ -33,5 +33,5 @@
 
 
 <template name="_questionaireSizeButton">
-  <button class="button button-dark badge">{{this}}</button>
+  <button class="button button-dark button-qollcount badge">{{this}}</button>
 </template>

@@ -105,7 +105,7 @@ Accounts.validateLoginAttempt(function(attempt){
     console.log('email not verified');
     throw new Meteor.Error(100002, reason, 'Please check your email and verify user account [' + reason +']');
     return false; // the login is aborted
-  }
+  } 
 
   if (attempt.error){
       var reason = attempt.error.reason;

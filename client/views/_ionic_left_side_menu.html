@@ -5,18 +5,16 @@
       </div>
       <div class="content has-header">
         <div class="list">
-          <div class="item item-icon-right" data-ion-menu-close>
-            	<a href="{{pathFor 'tabs.inbox'}}">Qoll Box {{> ionIcon icon="ios-arrow-forward"}}</a>
+          <div class="item item-icon-right active-menu-bg" data-ion-menu-close>
+            	<a href="{{pathFor 'tabs.inbox'}}" class="signout-text">Qoll Box {{> ionIcon icon="ios-arrow-forward"}}</a>
           </div>
-          <div class="item item-icon-right" data-ion-menu-close>
-            	<a href="{{pathFor 'tabs.groupsOwned'}}">Groups {{> ionIcon icon="ios-arrow-forward"}}</a>
+          <div class="item item-icon-right active-menu-bg" data-ion-menu-close>
+            	<a href="{{pathFor 'tabs.groupsOwned'}}" class="signout-text">Groups {{> ionIcon icon="ios-arrow-forward"}}</a>
           </div>
-          <div class="item item-icon-right" data-ion-menu-close>
-            	<a href="{{pathFor 'tabs.inbox'}}">Users {{> ionIcon icon="ios-arrow-forward"}}</a>
+          <div class="item item-icon-right active-menu-bg" data-ion-menu-close>
+            	<a href="{{pathFor 'tabs.inbox'}}" class="signout-text">Users {{> ionIcon icon="ios-arrow-forward"}}</a>
           </div>
-        </div>
-
-        <div class="list">
+        
           <div class="item item-icon-left item-icon-right signout-bg" data-ion-menu-close>
             <!-- a href="{{pathFor 'tabs.inbox'}}">{{> ionIcon icon="ios-arrow-right"}} Profile</a -->
             <a href="#" class="signout-text" data-action="go-to-profile">
