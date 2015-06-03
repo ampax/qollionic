@@ -96,6 +96,7 @@ Template.single_qoll_options.events({
     // console.log(event);
     var qoll =this.qoll;
     var qollType = this.qollType;
+    var answered_or_unanswered;
     //If not a multiple choice question, remove the border-selected
     qlog.info('Printing ooooif this is multiple - ' + qoll.qollText + '/' + qoll.isMultiple);
     
@@ -106,8 +107,10 @@ Template.single_qoll_options.events({
     } else {
       if (chk.hasClass('border-selected')) {
         chk.removeClass('border-selected');
+        answered_or_unanswered = 'unanswered';
       } else {
         chk.addClass('border-selected');
+        answered_or_unanswered = 'answered';
       }
     }
 
@@ -124,7 +127,8 @@ Template.single_qoll_options.events({
 
     if (qollstionnaireId) {
       SearchConn.call('AddQollstionnaireResponseRemote', 
-        {qollstionnaireId : qollstionnaireId, qollId : qollId, answerVal : answerVal, answerIndex : answerIndex, userId : userId}, 
+        {qollstionnaireId : qollstionnaireId, qollId : qollId, answerVal : answerVal, 
+          answerIndex : answerIndex, userId : userId, answered_or_unanswered : answered_or_unanswered}, 
         function(err, qollRegId) {
         if (err) {
           qlog.error('Failed registering the qoll: ' + qollId + ' : ' + err, filename);

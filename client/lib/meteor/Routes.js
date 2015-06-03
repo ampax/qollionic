@@ -24,6 +24,8 @@ ViewQuestionnaireController_READ = RouteController.extend({
 		var userId = Meteor.userId();
 		var _id = this._id;
 
+		SearchConn.subscribe('QUESTIONAIRE_FOR_ID_PUBLISHER', 
+	    	{userId: userId, _id : Session.get('questionnaire_id'), context : Session.get('context')});
 		SearchConn.subscribe('QOLL_FOR_QUESTIONAIRE_ID_PUBLISHER', 
 	    	{userId: userId, _id : Session.get('questionnaire_id'), context : Session.get('context')});
 	},
@@ -76,6 +78,12 @@ Router.map(function() {
 	this.route('go_home_cordova', {
 		template : 'nav_cordova',
 		path: '/home_cordova',
+	});
+
+	this.route('quicker', {
+		path: '/quicker', 
+		template: 'quicker',
+		layoutTemplate: 'qoll_blank_tabs_layout'
 	});
 
 	this.route('tabs.inbox', {path: '/tabs/inbox', layoutTemplate: 'qoll_tabs_layout'});

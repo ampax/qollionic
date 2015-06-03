@@ -1,0 +1,18 @@
+<template name="_ionic_quicker_header">
+  {{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+      {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+      {{else}}
+        {{> ionIcon icon='navicon'}}
+      {{/if}}
+    </button>
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    {{#if isAndroid}}
+      <h1 class="title" style="padding-left: 10%;">Quicker Board</h1>
+    {{else}}
+      <h1 class="title">Quicker Board</h1>
+    {{/if}}
+  {{/contentFor}}
+</template>

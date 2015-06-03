@@ -103,3 +103,7 @@ a:hover, a:active {
 .icon-chevron-right-qoll, .add-for-quest, .remove-for-quest {
     color: rgb(210, 67, 67) !important;
 }
+
+.quicker-menu-bg {
+    background-color: #668E69 !important;
+}

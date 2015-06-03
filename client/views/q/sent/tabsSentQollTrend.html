@@ -12,9 +12,17 @@
 
 			Result grid to come here {{questId}}
 
-			<div style="height: 100%">
+			<!-- div style="height: 100%">
 		        <div id="container-column" style="min-width: 310px; height: 400px;"></div>
-	    	</div>
+	    	</div -->
+
+	    	{{#if is_quicker questionaire.category}}
+				{{> _pieDistribution}}
+			{{/if}}
+
+			{{#if is_not_quicker questionaire.category}}
+				{{> _columnDistribution}}
+			{{/if}}
 	    
 	    {{/ionContent}}
 

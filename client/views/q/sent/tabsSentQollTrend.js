@@ -3,15 +3,10 @@ var filename='client/views/q/sent/tabsSentQollTrend.js';
 Template.tabsSentQollTrend.helpers({
     qollst : function() {
         qlog.info('Called to get the qollst for owner here ...', filename);
-        var qollst = QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
-
-        if(qollst)
-        qollst.qolls.map(function(q){
-            qlog.info("==========================");
-            console.log(q);
-            if(q.qoll_response) console.log(q.qoll_response.iscorrect);
-        });
-        return qollst;
+        return QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
+    },
+    questionaire : function() {
+        return QuestionaireForId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
     },
     questId : function() {
         var qollst = QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
@@ -21,6 +16,15 @@ Template.tabsSentQollTrend.helpers({
 
         return '';
     },
+    is_quicker : function(category) {
+        return category === 'quicker';
+    },
+    is_not_quicker : function(category) {
+        return !(category === 'quicker');
+    },
+    qoll_list : function() {
+        return QollForQuestionaireId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
+    }
 });
 
 Template.tabsSentQollTrend.onCreated(function(){
@@ -126,6 +130,6 @@ function builtColumn() {
 /*
  * Call the function to built the chart when the template is rendered
  */
-Template.tabsSentQollTrend.rendered = function() {    
-    builtColumn();
+Template.tabsSentQollTrend.rendered = function() {
+    // builtColumn();
 }

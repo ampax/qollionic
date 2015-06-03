@@ -24,6 +24,7 @@ QbSummary = new Mongo.Collection('qbank_summary', SearchConn);
 IReceivedQuestionaire = new Mongo.Collection('recvd-questionaire', SearchConn);
 ISentQuestionaire = new Mongo.Collection("sent-by-me-questionaire", SearchConn);
 IStoredQuestionaire = new Mongo.Collection('stored-by-me-questionaire', SearchConn);
+QuestionaireForId = new Mongo.Collection('questionaire-for-id', SearchConn);
 QollForQuestionaireId = new Mongo.Collection('qoll-for-questionaire-id', SearchConn);
 
 QollForIds = new Mongo.Collection('qolls_for_ids', SearchConn);
