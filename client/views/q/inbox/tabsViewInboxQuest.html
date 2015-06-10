@@ -8,7 +8,7 @@
 	{{/contentFor}}
 
 	{{#ionView}}
-		{{#ionContent}}
+		{{#ionContent class="padding qoll-card-bg"}}
 			<!-- {{#ionSlideBox}} -->
 
 				<!-- Adding ion sliders -->
@@ -34,6 +34,20 @@
 			    	<h3>Slide 2</h3>
 			    {{/ionSlide}}
 		    {{/ionSlideBox}} -->
+		    {{#if is_not_submitted questionaire}}
+		    <button class="button button-block button-positive" 
+		    	id="submit_questionnaire"
+		    	data-questionaire_id="{{questId}}">
+			  Submit Questionnaire
+			</button>
+			{{/if}}
+
+			{{#if is_submitted questionaire}}
+			<button class="button button-block button-stable">
+			  Submitted Questionnaire
+			</button>
+			{{/if}}
+
 	    {{/ionContent}}
 
 	    {{> _ionic_inbox_tabs}}

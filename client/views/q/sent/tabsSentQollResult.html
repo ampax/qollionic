@@ -8,12 +8,12 @@
 	{{/contentFor}}
 
 	{{#ionView}}
-		{{#ionContent}}
+		{{#ionContent class="padding qoll-card-bg"}}
 
 			{{#ionList}}
       			
         		{{#each qollst.stats}}
-	        		{{#ionItem}}
+	        		{{#ionItem class="padding"}}
 	        			<h2 class="respondent-bg">{{this.name}}</h2>
 
 	        			{{#each this.responses}}

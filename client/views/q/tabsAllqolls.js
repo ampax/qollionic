@@ -21,7 +21,12 @@ Template.tabsAllqolls.helpers({
       return false;
     }
 
-  }
+  },
+  imgs: function(image_ids) {
+    if(!image_ids) return [];
+    var imgs1 = QollImages.find({'_id': {$in: image_ids}});
+    return imgs1;
+  },
 });
 
 
@@ -82,5 +87,7 @@ Template.tabsAllqolls.onCreated(function(){
     
     if(!Session.get('selected_qoll_ids'))
       Session.set("selected_qoll_ids", new Array());
+
+    this.subscribe('images');
 });
 

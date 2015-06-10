@@ -13,6 +13,9 @@
             <!-- {{> _qollTypeButton}} -->
             <!-- model=checkboxModel name="pushNotifications" disabled=checkboxDisabled -->
             <a href="{{pathFor 'viewQoll'}}">
+              {{#each imgs imageIds}}
+                <img src="{{this.url store='thumbs_1'}}" class="qoll-thumbs" style="zoom: 20%;" data-gallery id="{{this._id}}"/>
+              {{/each}}
               <h2>{{this.qollTitle}}</h2>
               <p>
                 {{this.qollText}}

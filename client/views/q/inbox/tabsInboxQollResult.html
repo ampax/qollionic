@@ -8,12 +8,12 @@
 	{{/contentFor}}
 
 	{{#ionView}}
-		{{#ionContent}}
+		{{#ionContent class="padding qoll-card-bg"}}
 
 			{{#ionList}}
       			
         		{{#each qollst.qolls}}
-	        		{{#ionItem}}
+	        		{{#ionItem class="padding"}}
 		        		<div class="row">
 		        			<div class="col col-75">
 			        			<h2>{{this.qoll_idx_title}} {{{transform_txt this.title this.cat QollConstants.CONTEXT.READ this.fib}}}</h2>
@@ -25,28 +25,6 @@
         		{{/each}}
 
         	{{/ionList}}
-          
-
-          <div class="row">
-			  <div class="col col-50">.col.col-50</div>
-			  <div class="col">.col</div>
-			  <div class="col">.col</div>
-			</div>
-
-			<div class="row">
-			  <div class="col col-75">.col.col-75</div>
-			  <div class="col">.col</div>
-			</div>
-
-			<div class="row">
-			  <div class="col">.col</div>
-			  <div class="col col-75">.col.col-75</div>
-			</div>
-
-			<div class="row">
-			  <div class="col">.col</div>
-			  <div class="col">.col</div>
-			</div>
 	    
 	    {{/ionContent}}
 

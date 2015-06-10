@@ -1,11 +1,11 @@
 Template.single_qoll_options.helpers({
 	qoll_type_abbr : function(idx) {
-		qlog.info('GOT IX 2' + idx, filename);
+		//qlog.info('GOT IX 2' + idx, filename);
 		return alphabetical[idx];
 	},
 	qoll_abbr_class : function(idx, context) {
-		qlog.info('GOT IXXXXXX ' + idx + '/' + context, filename);
-		console.log(context);
+		//qlog.info('GOT IXXXXXX ' + idx + '/' + context, filename);
+		//console.log(context);
 		if(context === QollConstants.CONTEXT.WRITE){
 			return "class_" + idx;
 		} else {
@@ -13,7 +13,7 @@ Template.single_qoll_options.helpers({
 		}
 	},
 	transform_txt : function(txt, cat, context, fib) {
-    qlog.info('Printing fill in the blanks - ' + fib, filename);
+    //qlog.info('Printing fill in the blanks - ' + fib, filename);
     if(cat != QollConstants.QOLL_TYPE.BLANK)
       return txt;
 
@@ -22,7 +22,7 @@ Template.single_qoll_options.helpers({
       disabled = 'DISABLED';
 
     if(txt.match(QollRegEx.fib_transf))
-      qlog.info('hell this is printed', filename);
+      //qlog.info('hell this is printed', filename);
 
     while (matches = QollRegEx.fib_transf.exec(txt)) {
       //qlog.info('matches - ' + matches, filename);
@@ -43,14 +43,14 @@ Template.single_qoll_options.helpers({
             
             txt = txt.replace(matches[0], '<input class="textbox fib fib_write" type="text" placeholder="'+placeholder+ '" ' +disabled+' value="'+fib_val+'">');
             //cntr++;
-            qlog.info('##############=> ' + idx, filename);
+            //qlog.info('##############=> ' + idx, filename);
             //break;
         }
 
     return txt;
   },
   is_correct_answer : function(qollTypesX, context) {
-  	console.log(qollTypesX);
+  	//console.log(qollTypesX);
 
 		if(context === QollConstants.CONTEXT.WRITE) return false;
 
@@ -63,7 +63,7 @@ Template.single_qoll_options.helpers({
 		return false;
 	},
   get_qoll_resp_class : function(context) {
-    console.log(context);
+    //console.log(context);
     if(context === QollConstants.CONTEXT.WRITE) {
       return 'qoll-response-val';
     } else return 'qoll-response-val-none';
@@ -90,15 +90,15 @@ Template.single_qoll_options.events({
   'click .qoll-response-val' : function(event) {
     event.preventDefault();
     var chk = $(event.target);
-    console.log(this);
-    console.log(chk);
-    console.log(event.target);
+    //console.log(this);
+    //console.log(chk);
+    //console.log(event.target);
     // console.log(event);
     var qoll =this.qoll;
     var qollType = this.qollType;
     var answered_or_unanswered;
     //If not a multiple choice question, remove the border-selected
-    qlog.info('Printing ooooif this is multiple - ' + qoll.qollText + '/' + qoll.isMultiple);
+    //qlog.info('Printing ooooif this is multiple - ' + qoll.qollText + '/' + qoll.isMultiple);
     
     if (!qoll.isMultiple) {
       $(chk).parent().parent().parent().find('.border-selected').removeClass('border-selected');
@@ -120,10 +120,10 @@ Template.single_qoll_options.events({
     var answerVal = qollType.type;
     var userId = Meteor.userId();
 
-    qlog.info('youclicked: ' + qollstionnaireId, filename);
-    qlog.info('youclickedon: ' + event, filename);
-    qlog.info('youclickedid: ' + qollId, filename);
-    qlog.info('the aindex =' + answerVal + '/' + answerIndex, filename);
+    //qlog.info('youclicked: ' + qollstionnaireId, filename);
+    //qlog.info('youclickedon: ' + event, filename);
+    //qlog.info('youclickedid: ' + qollId, filename);
+    //qlog.info('the aindex =' + answerVal + '/' + answerIndex, filename);
 
     if (qollstionnaireId) {
       SearchConn.call('AddQollstionnaireResponseRemote', 
@@ -166,7 +166,7 @@ Template.single_qoll_options.events({
 Template.single_qoll_options.onCreated(function(){
   // SearchConn.subscribe('images_cluster');
 
-  qlog.info(">>>=========================<<<", filename);
+  //qlog.info(">>>=========================<<<", filename);
   // console.log(Posts.find().fetch())
 
 
@@ -175,8 +175,8 @@ Template.single_qoll_options.onCreated(function(){
 
   remote.subscribe('images', function() {
     var items = Items.find();
-    console.log('================== STARTING ON REMOTE CONNECTION ===================');
-    console.log(items.count());  // get 1         
+    //console.log('================== STARTING ON REMOTE CONNECTION ===================');
+    //console.log(items.count());  // get 1         
   });
 });
 

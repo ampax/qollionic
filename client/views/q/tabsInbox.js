@@ -4,6 +4,15 @@ Template.tabsInbox.helpers({
   all_questionaires: function() {
     return IReceivedQuestionaire.find();
   },
+  submitted_on : function(qollstionnaireSubmittedOn) {
+		console.log(qollstionnaireSubmittedOn);
+
+		if(!qollstionnaireSubmittedOn) return '';
+		else {
+			// return qollstionnaireSubmittedOn;
+			return "<u class='red'>Submitted: "+moment(qollstionnaireSubmittedOn).format('MMM Do YYYY, h:mm a')+"</u>";
+		}
+	},
 });
 
 Template.tabsInbox.onCreated(function(){

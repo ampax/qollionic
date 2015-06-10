@@ -99,9 +99,9 @@ Template.single_qoll.helpers({
     imgs: function(img_ids) {
       console.log(img_ids);
       if(!img_ids) return [];
-      //var imgs1 = QollImages.find({'_id': {$in: img_ids}});
-      // return imgs1;
-      return [];
+      var imgs1 = QollImages.find({'_id': {$in: img_ids}});
+      return imgs1;
+      //return [];
     },
     is_blank_type : function(cat) {
     return _.contains([QollConstants.QOLL_TYPE.BLANK, QollConstants.QOLL_TYPE.BLANK_DBL], cat);
@@ -143,6 +143,8 @@ Template.single_qoll.events({
 });
 
 Template.single_qoll.onCreated(function(){
+  this.subscribe('images');
+  
   // SearchConn.subscribe('images');
     
   qlog.info('Loading inbox for userId ====> ' + userId, filename);
@@ -151,4 +153,5 @@ Template.single_qoll.onCreated(function(){
 
   // qlog.info('Printing images ==========> ' + JSON.stringify(FetchImages.find().fetch()));
 });
+
 
