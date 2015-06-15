@@ -32,6 +32,13 @@ Template.tabsSentQollResult.helpers({
 
 		return qlls;
 	},
+	submitted_on : function(qollstionnaireSubmittedOn) {
+		if(!qollstionnaireSubmittedOn) return '';
+		else {
+			// return qollstionnaireSubmittedOn;
+			return "(Submitted On: "+moment(qollstionnaireSubmittedOn).format('MMM Do YYYY, h:mm a')+")";
+		}
+	},
 });
 
 Template.tabsSentQollResult.onCreated(function(){

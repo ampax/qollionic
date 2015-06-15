@@ -10,9 +10,16 @@ Template.tabsInbox.helpers({
 		if(!qollstionnaireSubmittedOn) return '';
 		else {
 			// return qollstionnaireSubmittedOn;
-			return "<u class='red'>Submitted: "+moment(qollstionnaireSubmittedOn).format('MMM Do YYYY, h:mm a')+"</u>";
+			return "<span class='green_1'>Submitted: "+moment(qollstionnaireSubmittedOn).format('MMM Do YYYY, h:mm a')+"</span>";
 		}
 	},
+  closed_on : function(closed_on) {
+      qlog.info('======================> ' + closed_on, filename);
+    if(closed_on) {
+      // return qollstionnaireSubmittedOn;
+      return ", <span class='red_1'>Closed On: "+moment(closed_on).format('MMM Do YYYY, h:mm a')+"</span>";
+    }
+  },
 });
 
 Template.tabsInbox.onCreated(function(){

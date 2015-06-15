@@ -14,7 +14,7 @@
       			
         		{{#each qollst.stats}}
 	        		{{#ionItem class="padding"}}
-	        			<h2 class="respondent-bg">{{this.name}}</h2>
+	        			<h2 class="respondent-bg">{{this.name}} {{submitted_on qollstionnaireSubmittedOn}}</h2>
 
 	        			{{#each this.responses}}
 	        				<div class="row responsive-sm respondent-row-style">

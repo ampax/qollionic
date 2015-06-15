@@ -13,9 +13,7 @@ Template.tabsViewInboxQuest.helpers({
 		return QuestionaireForId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
 	},
 	is_submitted : function(questionaire) {
-		qlog.info('=====================================', filename);
-		console.log(questionaire);
-		if(questionaire && questionaire.qollstionnaireSubmitted === true)
+		if(questionaire && questionaire.qollstionnaireSubmitted === true || questionaire.qollstionnaire_closed === 'closed')
 			return true;
 
 		return false;
@@ -23,10 +21,27 @@ Template.tabsViewInboxQuest.helpers({
 	is_not_submitted : function(questionaire) {
 		qlog.info('=====================================', filename);
 		console.log(questionaire);
-		if(questionaire && questionaire.qollstionnaireSubmitted === true)
+		if(questionaire && (questionaire.qollstionnaireSubmitted === true || questionaire.qollstionnaire_closed === 'closed'))
 			return false;
 
 		return true;
+	},
+	submitted_on : function(questionaire) {
+		if(!questionaire || !questionaire.qollstionnaireSubmittedOn) return '';
+		else {
+			// return qollstionnaireSubmittedOn;
+			return "<span class='green_1'>("+moment(questionaire.qollstionnaireSubmittedOn).format('MMM Do YYYY, h:mm a')+")</span>";
+		}
+	},
+	is_not_closed : function(questionaire) {
+		if(!questionaire || !questionaire.qollstionnaireClosed) return true;
+		else if(questionaire.qollstionnaireClosed === 'closed') return false;
+		return true;
+	},
+	is_closed : function(questionaire) {
+		if(!questionaire || !questionaire.qollstionnaireClosed) return false;
+		else if(questionaire.qollstionnaireClosed === 'closed') return true;
+		return false;
 	},
 });
 

@@ -2,6 +2,16 @@ Template.tabsSentqolls.helpers({
   all_questionaires: function() {
   	return ISentQuestionaire.find();
   },
+  sent_on : function(sent_on) {
+  		return moment(sent_on).format('MMM Do YYYY, h:mm a');
+  },
+  closed_on : function(closed_on) {
+  		qlog.info('======================> ' + closed_on, filename);
+		if(closed_on) {
+			// return qollstionnaireSubmittedOn;
+			return ", <span class='red_1'>Closed On: "+moment(closed_on).format('MMM Do YYYY, h:mm a')+"</span>";
+		}
+	},
 });
 
 

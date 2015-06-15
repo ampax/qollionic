@@ -9,6 +9,44 @@ Template.tabsViewSentQuest.helpers({
 	questId : function() {
 		return Session.get('questionnaire_id');
 	},
+	can_close : function(questionnaire) {
+		if(questionnaire && questionnaire.status === 'sent' && questionnaire.qollstionnaireClosed != 'closed') {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	is_closed : function(questionnaire) {
+		if(questionnaire && questionnaire.qollstionnaireClosed === 'closed') {
+			return true;
+		}
+	},
+	closed_on : function(questionnaire) {
+		if(questionnaire && questionnaire.qollstionnaireClosed === 'closed') {
+			// return qollstionnaireSubmittedOn;
+			return "(Closed On: "+moment(questionnaire.qollstionnaireClosedOn).format('MMM Do YYYY, h:mm a')+")";
+		}
+	},
+});
+
+Template.tabsViewSentQuest.events({
+	'click button#close_questionnaire' : function(e, l) {
+		e.preventDefault();
+
+		var btn = $(e.target);
+
+		var quest_id = btn.data('questionaire_id');
+		var user_id = Meteor.userId();
+
+		SearchConn.call('close_questionnaire', quest_id, user_id, function(err, res){
+			if(err) {
+				qlog.error('Error happened while submitting the questionnaire ... ' + quest_id, filename);
+				qlog.error(err, filename);
+			} else {
+				alert(res.msg);
+			}
+		});
+	}
 });
 
 

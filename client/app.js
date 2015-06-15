@@ -30,6 +30,8 @@ QollForQuestionaireId = new Mongo.Collection('qoll-for-questionaire-id', SearchC
 QollForIds = new Mongo.Collection('qolls_for_ids', SearchConn);
 AllMyActiveQolls = new Mongo.Collection('all_my_active_qolls', SearchConn);
 
+QuickerQolls = new Mongo.Collection("quicker-qolls", SearchConn);
+
 
 // FetchImages = new Mongo.Collection('images', SearchConn);
 

@@ -3,8 +3,8 @@
 Template._qollModal.helpers({
 	resp_qoll : function() {
 		var userId = Meteor.userId();
-		// console.log( this.questionaire_id + '/' + this.qid + '/' + this.responder_id);
-		return SearchConn.call("findQollForRespondend", userId, this.questionaire_id, this.qid, this.responder_id, QollConstants.CONTEXT.READ, function(err, qolls) {
+		console.log( this.questionaire_id + '/' + this.qid + '/' + this.responder_id);
+		var qolls = SearchConn.call("findQollForRespondend", userId, this.questionaire_id, this.qid, this.responder_id, QollConstants.CONTEXT.READ, function(err, qolls) {
 		  if(err) throw err;
 		  console.log("here is list of qolls ------>", qolls);
 		  console.log(qolls);
@@ -14,9 +14,10 @@ Template._qollModal.helpers({
 		});
 
 		console.log('==========----------==========>');
+		console.log(qolls);
 		//return q;
 
-		return [{qollTitle : 'saldkjfhaklsfhaklsfhlasdhf', action : 'adslfjhadlsfhaldkjsfhlasdfa123123'}];
+		return qolls; //[{qollTitle : 'saldkjfhaklsfhaklsfhlasdhf', action : 'adslfjhadlsfhaldkjsfhlasdfa123123'}];
 	},
 	resp_qoll1 : function() {
 		console.log("#######################=#######################");

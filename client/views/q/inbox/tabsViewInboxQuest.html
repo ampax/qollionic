@@ -34,7 +34,7 @@
 			    	<h3>Slide 2</h3>
 			    {{/ionSlide}}
 		    {{/ionSlideBox}} -->
-		    {{#if is_not_submitted questionaire}}
+		    {{#if is_not_submitted questionaire }}
 		    <button class="button button-block button-positive" 
 		    	id="submit_questionnaire"
 		    	data-questionaire_id="{{questId}}">
@@ -44,7 +44,7 @@
 
 			{{#if is_submitted questionaire}}
 			<button class="button button-block button-stable">
-			  Submitted Questionnaire
+			  Submitted Questionnaire {{{submitted_on questionaire}}}
 			</button>
 			{{/if}}
 

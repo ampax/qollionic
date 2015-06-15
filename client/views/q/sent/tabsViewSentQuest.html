@@ -22,6 +22,21 @@
 
       		{{/ionList}}
 		    <!-- {{> _ionic_qoll_tabs_footer}} -->
+
+		    {{#if can_close qollst.questionaire}}
+		    <button class="button button-block button-assertive"
+		    	id="close_questionnaire"
+		    	data-questionaire_id="{{questId}}">
+			  Close Questionnaire
+			</button>
+			{{/if}}
+
+			{{#if is_closed qollst.questionaire}}
+		    <button class="button button-block button-stable">
+			  Closed Questionnaire <span class='red_1'>{{closed_on qollst.questionaire}}</span>
+			</button>
+			{{/if}}
+
 	    {{/ionContent}}
 
 	    {{> _ionic_sent_tabs}}
