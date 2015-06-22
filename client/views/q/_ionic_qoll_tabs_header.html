@@ -9,15 +9,26 @@
     </button>
   {{/contentFor}}
   {{#contentFor "headerTitle"}}
-    {{#if isAndroid}}
-      <h1 class="title" style="padding-left: 10%;">Qoll</h1>
-    {{else}}
-      <h1 class="title">Qoll</h1>
-    {{/if}}
     <button class="button button-clear btn-qoll-action" data-action="showActionSheet"> 
       <!-- Check qoll_tabs_layout for event handling -->
       {{> ionIcon icon='ios-upload-outline'}}
     </button>
+
+    {{#if isAndroid}}
+      <!-- h1 class="title" style="padding-left: 10%;">Qoll</h1 -->
+      <button class="button button-clear" style="padding-top: 6px; padding-left: 40%;">
+        <img class="title-image" src="/images/1.png" style="zoom: 7%;padding-top: 34px;"/>
+      </button>
+    {{else}}
+      <!-- h1 class="title">Qoll</h1 -->
+      <button class="button button-clear" style="padding-top: 6px;">
+        <img class="title-image" src="/images/1.png" style="zoom: 7%;padding-top: 34px;"/>
+      </button>
+    {{/if}}
+    
+    <!-- button class="button button-clear" style="padding-top: 6px;">
+      <img class="title-image" src="/images/1.png" style="zoom: 7%;padding-top: 34px;"/>
+    </button -->
 
     <!-- button class="button button-clear" data-ion-modal="new_product" -->
     <button class="button button-clear" data-ion-modal="new_qoll">

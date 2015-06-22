@@ -1,8 +1,8 @@
 App.info({
   name: 'Qoll',
   description: 'Submit and vote on products made with Meteor',
-  author: 'Nick Wientge',
-  website: 'http://exygen.io',
+  author: 'Anoop Kaushik, Amit Kaushik',
+  website: 'http://qoll.io',
   version: '0.0.1'
 });
 

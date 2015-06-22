@@ -13,7 +13,7 @@ Template.tabsViewInboxQuest.helpers({
 		return QuestionaireForId.find({_id : Session.get('questionnaire_id')}).fetch()[0];
 	},
 	is_submitted : function(questionaire) {
-		if(questionaire && questionaire.qollstionnaireSubmitted === true || questionaire.qollstionnaire_closed === 'closed')
+		if(questionaire && (questionaire.qollstionnaireSubmitted === true || questionaire.qollstionnaire_closed === 'closed'))
 			return true;
 
 		return false;

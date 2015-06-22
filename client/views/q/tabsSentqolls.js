@@ -6,8 +6,7 @@ Template.tabsSentqolls.helpers({
   		return moment(sent_on).format('MMM Do YYYY, h:mm a');
   },
   closed_on : function(closed_on) {
-  		qlog.info('======================> ' + closed_on, filename);
-		if(closed_on) {
+  	if(closed_on) {
 			// return qollstionnaireSubmittedOn;
 			return ", <span class='red_1'>Closed On: "+moment(closed_on).format('MMM Do YYYY, h:mm a')+"</span>";
 		}
