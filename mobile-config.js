@@ -37,7 +37,30 @@ App.launchScreens({
   'android_hdpi_landscape': 'resources/splash/android_hdpi_landscape.png',
   'android_xhdpi_portrait': 'resources/splash/android_xhdpi_portrait.png',
   'android_xhdpi_landscape': 'resources/splash/android_xhdpi_landscape.png'
-});
+}); 
+
+/**
+App.launchScreens({
+  'iphone': 'resources/splash/transparent/iphone_transparent.png',
+  'iphone_2x': 'resources/splash/transparent/iphone_2x_transparent.png',
+  'iphone5': 'resources/splash/transparent/iphone5_transparent.png',
+  'iphone6': 'resources/splash/transparent/iphone6_transparent.png',
+  'iphone6p_portrait': 'resources/splash/transparent/iphone6p_portrait_transparent.png',
+  'iphone6p_landscape': 'resources/splash/transparent/iphone6p_landscape_transparent.png',
+  'ipad_portrait': 'resources/splash/transparent/ipad_portrait_transparent.png',
+  'ipad_portrait_2x': 'resources/splash/transparent/ipad_portrait_2x_transparent.png',
+  'ipad_landscape': 'resources/splash/transparent/ipad_landscape_transparent.png',
+  'ipad_landscape_2x': 'resources/splash/transparent/ipad_landscape_2x_transparent.png',
+  'android_ldpi_portrait': 'resources/splash/transparent/android_ldpi_portrait_transparent.png',
+  'android_ldpi_landscape': 'resources/splash/transparent/android_ldpi_landscape_transparent.png',
+  'android_mdpi_portrait': 'resources/splash/transparent/android_mdpi_portrait_transparent.png',
+  'android_mdpi_landscape': 'resources/splash/transparent/android_mdpi_landscape_transparent.png',
+  'android_hdpi_portrait': 'resources/splash/transparent/android_hdpi_portrait_transparent.png',
+  'android_hdpi_landscape': 'resources/splash/transparent/android_hdpi_landscape_transparent.png',
+  'android_xhdpi_portrait': 'resources/splash/transparent/android_xhdpi_portrait_transparent.png',
+  'android_xhdpi_landscape': 'resources/splash/transparent/android_xhdpi_landscape_transparent.png'
+}); 
+**/
 
 App.setPreference('StatusBarOverlaysWebView', true);
 App.setPreference('StatusBarStyle', 'default');

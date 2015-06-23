@@ -4,7 +4,17 @@
 	{{/contentFor}}
 
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">Questionnaire</h1>
+		{{#if isAndroid}}
+	      <!-- h1 class="title" style="padding-left: 10%;">Qoll</h1 -->
+	      <button class="button button-clear" style="padding-top: 6px; padding-left: 40%;">
+	        <img class="title-image" src="/images/1.png" style="zoom: 7%;padding-top: 34px;"/>
+	      </button>
+	    {{else}}
+	      <!-- h1 class="title">Qoll</h1 -->
+	      <button class="button button-clear" style="padding-top: 6px;">
+	        <img class="title-image" src="/images/1.png" style="zoom: 7%;padding-top: 34px;"/>
+	      </button>
+	    {{/if}}
 	{{/contentFor}}
 
 	{{#ionView}}
